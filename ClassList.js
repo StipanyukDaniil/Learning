@@ -1,37 +1,19 @@
-const btns = document.querySelectorAll('button'),
-    wrapper = document.querySelector('.btn-block');
+'use strict';
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-// console.log(btns[0].classList.length);
-// console.log(btns[0].classList.item(1));
-// console.log(btns[1].classList.add('red', 'treretrt'));
-// console.log(btns[0].classList.remove('blue'));
-// console.log(btns[0].classList.toggle('blue'));
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
 
-// if (btns[1].classList.contains('red')){
-//     console.log('red');
-// }
+const LastFilms = prompt('Один из последних просмотренных фильмов?', ''),
+    RankFilms = prompt('На сколько его оцените?', ''),
+    LastFilms2 = prompt('Один из последних просмотренных фильмов?', ''),
+    RankFilms2 = prompt('На сколько его оцените?', '');
 
-btns[0].addEventListener('click', () =>{
-    // if (!btns[1].classList.contains('red')){
-    //     btns[1].classList.add('red');
-    // } else {
-    //     btns[1].classList.remove('red');
-    // }
-btns[1].classList.toggle('red');
-
-});
-
-// console.log(btns[0].className);
-
-
-// Каждый раз нажимая на кнопку пишется слово "Hello"
-
-wrapper.addEventListener('click', (event)=>{
-   if (event.target && event.target.matches("button.red")){
-       console.log('Hello');
-   }
-});
-
-const btn = document.createElement('button');
-btn.classList.add('red');
-wrapper.append(btn);
+personalMovieDB.movies[LastFilms] = RankFilms;
+personalMovieDB.movies[LastFilms2] = RankFilms2;
+console.log(personalMovieDB);
